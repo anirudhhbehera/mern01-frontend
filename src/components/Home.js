@@ -13,7 +13,8 @@ const Home = () => {
         const res = await fetch(`${BACKEND_URL}/getdata`,{
           method:"GET",
           headers:{
-            "Content-Type":"application.json"
+            "Content-Type":"application.json",
+            Authorization: `Bearer ${localStorage.getItem('jwtoken')}` // Include the token in the Authorization header
           },
         });  
 
