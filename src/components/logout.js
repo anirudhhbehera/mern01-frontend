@@ -19,6 +19,7 @@ function Logout() {
             credentials:"include"
         }).then((res)=>{
        dispatch({type:"USER",payload:false})
+          localStorage.removeItem('jwtoken');
             navigate('/login');
             if (!res.status === 200) {
                 const error = new Error(res.error);
