@@ -25,12 +25,14 @@ const Login = () => {
       })
     });
     const data =await res.json();
+    console.log(data); // Log the entire response data
 
     if(res.status=== 400 || !data){
       window.alert("Invalid Login");
       console.log("Invalid Login");
     }else{
       localStorage.setItem('jwtoken', data.token);//Edit:stored locally
+      console.log(data.token);
       dispatch({type:"USER",payload:true})
       window.alert("Login successful");
       console.log("Login successful");  
