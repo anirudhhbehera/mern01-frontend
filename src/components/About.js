@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BACKEND_URL } from './apiConfig'// Import the backend URL
 
 const About = () => {
   let navigate = useNavigate();
@@ -7,7 +8,7 @@ const About = () => {
 
   const callAboutPage = async () => {
     try {
-      const res = await fetch('/about', {
+      const res = await fetch(`${BACKEND_URL}/about`, {
         method: "GET",
         headers: {
           Accept: "application/json",

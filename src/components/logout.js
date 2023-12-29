@@ -1,6 +1,8 @@
 import React, { useEffect,useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
+import { BACKEND_URL } from './apiConfig'// Import the backend URL
+
 
 
 function Logout() {
@@ -8,7 +10,7 @@ function Logout() {
   let navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('/logout',{
+        fetch(`${BACKEND_URL}/logout`,{
             method:"GET",
             headers:{
                 Accept:"application/json",

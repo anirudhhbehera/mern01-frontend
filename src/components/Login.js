@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../App";
+import { BACKEND_URL } from './apiConfig'// Import the backend URL
+
 
 const Login = () => {
 
@@ -12,7 +14,7 @@ const Login = () => {
 
   const loginUser=async(e)=>{
     e.preventDefault();
-    const res= await fetch('/signin',{
+    const res= await fetch(`${BACKEND_URL}/signin`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -28,6 +30,7 @@ const Login = () => {
       window.alert("Invalid Login");
       console.log("Invalid Login");
     }else{
+      localStorage.setItem('jwtoken', data.token);//Edit:stored locally
       dispatch({type:"USER",payload:true})
       window.alert("Login successful");
       console.log("Login successful");  

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // import useHistory from "react-dom";
 import { useNavigate } from 'react-router-dom';
+import { BACKEND_URL } from './apiConfig'// Import the backend URL
+
 
 const Signup = () => {
   // const history=useHistory();    
@@ -27,7 +29,7 @@ const Signup = () => {
   const PostData = async (e) =>{
     e.preventDefault();
     const {name,email,phone,work,password,cpassword}= user;
-    const res = await fetch("/register",{ 
+    const res = await fetch(`${BACKEND_URL}/register`,{ 
       method:"POST",
       headers:{
         "Content-Type":"application/json"

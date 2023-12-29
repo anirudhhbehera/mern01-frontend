@@ -1,4 +1,6 @@
 import React,{ useEffect,useState } from "react";
+import { BACKEND_URL } from './apiConfig'// Import the backend URL
+
 
 
 
@@ -8,7 +10,7 @@ const Home = () => {
 
  const userHomePage = async() =>{
       try {
-        const res = await fetch('/getdata',{
+        const res = await fetch(`${BACKEND_URL}/getdata`,{
           method:"GET",
           headers:{
             "Content-Type":"application.json"
