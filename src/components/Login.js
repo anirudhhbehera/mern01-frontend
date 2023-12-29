@@ -31,6 +31,7 @@ const Login = () => {
       window.alert("Invalid Login");
       console.log("Invalid Login");
     }else{
+      const jwtoken =data.token;
       localStorage.setItem('jwtoken', data.token);//Edit:stored locally
       console.log(data.token);
       dispatch({type:"USER",payload:true})
